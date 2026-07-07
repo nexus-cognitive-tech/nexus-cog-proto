@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package nexus_cog.v1;
+
+// A memory item in the palace — minimal contract for cloud sync.
+message MemoryItem {
+  string id = 1;
+  string key = 2;
+  string value = 3;
+  double confidence = 4;
+  uint32 access_count = 5;
+  int64 last_accessed = 6;
+  repeated string tags = 7;
+}
+
+// A palace room — typed container.
+message Room {
+  string id = 1;
+  string name = 2;
+  string room_type = 3;
+  double importance = 4;
+  repeated MemoryItem items = 5;
+}
+
+// Edge between two rooms.
+message Connection {
+  string from = 1;
+  string to = 2;
+  string relation = 3;
+  double strength = 4;
+}
+
+// Full palace payload — used for cloud sync and restore.
+message PalaceSnapshot {
+  string id = 1;
+  string name = 2;
+  repeated Room rooms = 3;
+  repeated Connection connections = 4;
+  int64 timestamp = 5;
+}

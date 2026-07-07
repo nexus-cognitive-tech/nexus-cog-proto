@@ -1,0 +1,24 @@
+[package]
+name = "nexus-cog-proto"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Nexus Cog protocol contracts — protobuf schemas for cloud IPC"
+license = "Apache-2.0"
+repository = "https://github.com/nexus-cognitive-tech/nexus-cog-proto"
+homepage = "https://github.com/nexus-cognitive-tech"
+authors = ["Nexus Cognitive Technologies"]
+keywords = ["protobuf", "contract", "ipc"]
+categories = ["encoding", "api-bindings"]
+readme = "README.md"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+nexus-cog-core = { git = "https://github.com/nexus-cognitive-tech/nexus-cog-core", tag = "v0.1.0" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "1"
+
+[build-dependencies]
